@@ -32,7 +32,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%--      <jsp:setProperty property="username" name="myUsers"/> --%>
  <!--        跟表单无关，通过手工赋值给属性 -->
       <jsp:setProperty property="username" name="myUsers"   value="lishi"/>  
-      <jsp:setProperty property="password" name="myUsers"   value="12"/>  
+<%--       <jsp:setProperty property="password" name="myUsers"   value="12"/>   --%>
+    <jsp:setProperty property="password" name="myUsers"     param="mypass"/>
      用户名：<%=myUsers.getUsername() %><br>
      密码 ：<%=myUsers.getPassword() %><br>
   </body>
