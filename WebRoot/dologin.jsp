@@ -34,7 +34,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <jsp:setProperty property="username" name="myUsers"   value="lishi"/>  
 <%--       <jsp:setProperty property="password" name="myUsers"   value="12"/>   --%>
     <jsp:setProperty property="password" name="myUsers"     param="mypass"/>
+<%--     使用传统的表达式方式来获取；用户名和密码
      用户名：<%=myUsers.getUsername() %><br>
-     密码 ：<%=myUsers.getPassword() %><br>
+     密码 ：<%=myUsers.getPassword() %><br> --%>
+     使用getProperty获取用户名和密码<br>
+     用户名：<jsp:getProperty property="username" name="myUsers"/><br>
+     密码：<jsp:getProperty property="password" name="myUsers"/><br>
   </body>
 </html>
