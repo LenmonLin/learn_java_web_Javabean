@@ -1,5 +1,5 @@
 package com.po;
-
+//用户类
 public class Users {
     
     private String username; //用户名

@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <h1>系统登录</h1>
-    <form name="loginForm"  action="dologin.jsp?mypass=9999"  method="post">
+    <form name="loginForm"  action="javabean_dologin.jsp?mypass=9999"  method="post">
         <table>
                 <tr>
 	              <td>用户名</td>
