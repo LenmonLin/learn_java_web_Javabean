@@ -26,9 +26,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <h1>使用setProperty</h1>
     <hr>
       <jsp:useBean  id="myUsers"  class="com.po.Users"   scope="page"/>
+     <!--  根据表单匹配所有的属性 -->
 <%--        <jsp:setProperty property="*" name="myUsers"/> --%>
         <!-- 根据表单匹配所有部分的属性 -->
-     <jsp:setProperty property="username" name="myUsers"/>
+<%--      <jsp:setProperty property="username" name="myUsers"/> --%>
+ <!--        跟表单无关，通过手工赋值给属性 -->
+      <jsp:setProperty property="username" name="myUsers"   value="lishi"/>  
+      <jsp:setProperty property="password" name="myUsers"   value="12"/>  
      用户名：<%=myUsers.getUsername() %><br>
      密码 ：<%=myUsers.getPassword() %><br>
   </body>
