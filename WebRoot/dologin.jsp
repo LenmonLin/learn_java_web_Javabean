@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
      <h1>使用setProperty</h1>
     <hr>
-      <jsp:useBean  id="myUsers"  class="com.po.Users"   scope="session"/>
+      <jsp:useBean  id="myUsers"  class="com.po.Users"   scope="request"/>
      <!--  根据表单匹配所有的属性 -->
 <%--        <jsp:setProperty property="*" name="myUsers"/> --%>
         <!-- 根据表单匹配所有部分的属性 -->
@@ -41,5 +41,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      用户名：<jsp:getProperty property="username" name="myUsers"/><br>
      密码：<jsp:getProperty property="password" name="myUsers"/><br>
      <a  href="scopetest.jsp">到scopetest</a>
+     <%
+        request.getRequestDispatcher("scopetest.jsp").forward(request, response);
+      %>
   </body>
 </html>
