@@ -1,3 +1,4 @@
+<%@page import="com.po.Users"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -23,23 +24,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-     <h1>使用setProperty</h1>
+     <h1>Javabean的四个作用域</h1>
     <hr>
       <jsp:useBean  id="myUsers"  class="com.po.Users"   scope="application"/>
-     <!--  根据表单匹配所有的属性 -->
-<%--        <jsp:setProperty property="*" name="myUsers"/> --%>
-        <!-- 根据表单匹配所有部分的属性 -->
-<%--      <jsp:setProperty property="username" name="myUsers"/> --%>
- <!--        跟表单无关，通过手工赋值给属性 -->
-      <jsp:setProperty property="username" name="myUsers"   value="lishi"/>  
-<%--       <jsp:setProperty property="password" name="myUsers"   value="12"/>   --%>
-    <jsp:setProperty property="password" name="myUsers"     param="mypass"/>
-<%--     使用传统的表达式方式来获取；用户名和密码
-     用户名：<%=myUsers.getUsername() %><br>
-     密码 ：<%=myUsers.getPassword() %><br> --%>
      使用getProperty获取用户名和密码<br>
      用户名：<jsp:getProperty property="username" name="myUsers"/><br>
      密码：<jsp:getProperty property="password" name="myUsers"/><br>
-     <a  href="scopetest.jsp">到scopetest</a>
+     <hr>
+     使用内置对象获取：<br>
+     用户名：<%=((Users)application.getAttribute("myUsers")).getUsername() %><br>
+     密码：<%=((Users)application.getAttribute("myUsers")).getPassword() %><br>
   </body>
 </html>
