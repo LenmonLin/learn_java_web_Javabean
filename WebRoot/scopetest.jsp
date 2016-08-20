@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
      <h1>Javabean的四个作用域</h1>
     <hr>
-      <jsp:useBean  id="myUsers"  class="com.po.Users"   scope="request"/>
+      <jsp:useBean  id="myUsers"  class="com.po.Users"   scope="page"/>
      使用getProperty获取用户名和密码<br>
      用户名：<jsp:getProperty property="username" name="myUsers"/><br>
      密码：<jsp:getProperty property="password" name="myUsers"/><br>
@@ -36,7 +36,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      密码：<%=((Users)application.getAttribute("myUsers")).getPassword() %><br> --%>
 <%--      用户名：<%=((Users)session.getAttribute("myUsers")).getUsername() %><br>
      密码：<%=((Users)session.getAttribute("myUsers")).getPassword() %><br>  --%>
-     用户名：<%=((Users)request.getAttribute("myUsers")).getUsername() %><br>
-     密码：<%=((Users)request.getAttribute("myUsers")).getPassword() %><br> 
+<%--      用户名：<%=((Users)request.getAttribute("myUsers")).getUsername() %><br>
+     密码：<%=((Users)request.getAttribute("myUsers")).getPassword() %><br>  --%>
+     <%
+            String username = "";
+            String password = "";
+            if(pageContext.getAttribute("myUsers") != null)
+            {
+                username= ((Users)pageContext.getAttribute("myUsers")).getUsername();
+                password= ((Users)pageContext.getAttribute("myUsers")).getPassword();
+            }     
+      %>
+     用户名：<%=username %><br>
+     密码：<%=password %><br>
   </body>
 </html>
